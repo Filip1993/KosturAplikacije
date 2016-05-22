@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 R.string.app_name);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+        //Kljucna komanda - sad mogu stavljati ikone na Toolbar preko menu-a!!!
+        setSupportActionBar(mToolbar);
     }
 
     private void setupFragmentManager() {
