@@ -3,6 +3,8 @@ package com.filipkesteli.kosturaplikacije;
 /**
  * Created by Filip on 22.5.2016..
  */
+
+//TabFragment je fragment koji se inflate-a kad se pritisne neki gumb na
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
