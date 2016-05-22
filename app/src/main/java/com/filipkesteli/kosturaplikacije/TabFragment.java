@@ -20,7 +20,7 @@ public class TabFragment extends Fragment {
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
-    public static int int_items = 3 ;
+    public static final int NUMBER_OF_ITEMS = 3 ;
 
     @Nullable
     @Override
@@ -28,35 +28,35 @@ public class TabFragment extends Fragment {
         /**
          *Inflate tab_layout and setup Views.
          */
-        View x =  inflater.inflate(R.layout.tab_layout,null);
-        tabLayout = (TabLayout) x.findViewById(R.id.tabs);
-        viewPager = (ViewPager) x.findViewById(R.id.viewpager);
+        View view =  inflater.inflate(R.layout.tab_layout,null);
+        tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
 
         /**
          *Set an Apater for the View Pager
          */
-        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager()));
 
         /**
          * Now , this is a workaround ,
          * The setupWithViewPager dose't works without the runnable .
          * Maybe a Support Library Bug .
          */
-
         tabLayout.post(new Runnable() {
             @Override
             public void run() {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
-
-        return x;
-
+        return view;
     }
 
-    class MyAdapter extends FragmentPagerAdapter{
+    class ViewPagerAdapter extends FragmentPagerAdapter{
 
-        public MyAdapter(FragmentManager fm) {
+        //array of names of fragments:
+        private String[] tabs = {"Light", "Dark", "Purple"};
+
+        public ViewPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -68,18 +68,19 @@ public class TabFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new PrimaryFragment();
-                case 1 : return new SocialFragment();
-                case 2 : return new UpdatesFragment();
+                case 0 :
+                    return new PrimaryFragment();
+                case 1 :
+                    return new SocialFragment();
+                case 2 :
+                    return new UpdatesFragment();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-
-            return int_items;
-
+            return NUMBER_OF_ITEMS;
         }
 
         /**
@@ -91,14 +92,13 @@ public class TabFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return "Primary";
+                    return tabs[0];
                 case 1 :
-                    return "Social";
+                    return tabs[1];
                 case 2 :
-                    return "Updates";
+                    return tabs[2];
             }
             return null;
         }
     }
-
 }

@@ -50,9 +50,8 @@ public class MainActivity extends AppCompatActivity {
          * Lets inflate the very first fragment
          * Here , we are inflating the TabFragment as the first Fragment
          */
-
-
-
+        //uzmemo trenutni fragment...
+        //unutar kontejnera, tj. FragmentLayout-a stavimo TabFragment
         mFragmentManager = getSupportFragmentManager();
         mFragmentManager
                 .beginTransaction()
@@ -71,18 +70,22 @@ public class MainActivity extends AppCompatActivity {
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
+                //ugasimo drawer ako kliknemo na neki od itema
                 mDrawerLayout.closeDrawers();
                 if (menuItem.getItemId() == R.id.nav_item_sent) {
-                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new SentFragment()).commit();
+                    mFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.containerView, new SentFragment())
+                            .commit();
                 }
                 if (menuItem.getItemId() == R.id.nav_item_inbox) {
-                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
+                    mFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.containerView, new TabFragment())
+                            .commit();
                 }
                 return false;
             }
         });
-
     }
 }
