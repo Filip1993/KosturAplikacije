@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -87,5 +89,26 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //getMenuInflater -> Returns a MenuInflater with this context
+        MenuInflater menuInflater = getMenuInflater();
+        //We are inflating menu layout with menu variable
+        menuInflater.inflate(R.menu.menu_toolbar, menu);
+        //onCreateOptionsMenu returns true if menu is to be displayed
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_home:
+                break;
+            case R.id.action_face:
+                break;
+        }
+        return true;
     }
 }

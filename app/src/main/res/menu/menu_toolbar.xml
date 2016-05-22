@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.filipkesteli.kosturaplikacije.MainActivity">
+
+    <item android:icon="@drawable/ic_face_white_24dp"
+        android:id="@+id/action_face"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="101"
+        android:menuCategory="secondary"
+        android:title="Face"/>
+
+    <item android:icon="@drawable/ic_home_white_24dp"
+        android:id="@+id/action_home"
+        app:showAsAction="always"
+        android:title="Home"/>
+
+</menu>
