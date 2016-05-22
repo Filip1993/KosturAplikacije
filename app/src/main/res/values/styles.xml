@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--Vidimo da je NoActionBar tip teme... znaci da moramo svoj ActionBar (Toolbar) sloziti-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@android:color/holo_orange_dark</item>
+    </style>
+
+</resources>
